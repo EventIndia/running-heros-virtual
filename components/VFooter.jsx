@@ -10,6 +10,7 @@ export default function VFooter() {
           <a href="https://runningheros.in">runningheros.in</a>
           <a href="mailto:support@runningheros.in">support@runningheros.in</a>
           <a href="https://runningheros.in/blogs">Blogs</a>
+          <p>Ayush Pandey</p>
         </div>
       </div>
     </footer>
