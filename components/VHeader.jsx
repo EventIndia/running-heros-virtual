@@ -109,7 +109,7 @@ export default function VHeader() {
             className="vMobileSwitchBack"
             onClick={() => setOpen(false)}
           >
-           Running Heros
+           Switch to Running Heros
           </Link>
         </div>
       )}
