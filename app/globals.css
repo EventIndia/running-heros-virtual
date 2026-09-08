@@ -173,10 +173,24 @@ img {
 }
 
 .vSwitchBack {
-  color: var(--v-blue);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 18px;
+  border-radius: 10px;
+  background: var(--v-blue);
   font-size: 15px;
   font-weight: 800;
+  color: #ffffff;
+  box-shadow: 0 10px 22px rgba(40, 116, 239, 0.2);
   white-space: nowrap;
+}
+
+.vSwitchBack:hover {
+  background: #1459d9;
+  color: #ffffff;
+  opacity: 1;
 }
 
 .vMenuButton {
@@ -587,7 +601,9 @@ img {
   }
 
   .vMobileSwitchBack {
-    color: var(--v-blue) !important;
+    background: var(--v-blue);
+    color: #ffffff !important;
+    text-align: center;
   }
 
   .vHeroSlider {
