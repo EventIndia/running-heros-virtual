@@ -363,19 +363,14 @@ img {
   margin-bottom: 22px;
 }
 
-.vSectionTitleRow span {
-  color: var(--v-green);
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
 .vSectionTitleRow h1 {
-  margin: 7px 0 0;
-  font-size: clamp(30px, 4vw, 48px);
-  line-height: 1;
-  letter-spacing: -0.06em;
+  margin: 0;
+  color: #101828;
+  font-family: Manrope, "Segoe UI", sans-serif;
+  font-size: clamp(30px, 3.8vw, 46px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
 }
 
 .vSectionAction {

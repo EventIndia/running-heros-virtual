@@ -6,8 +6,7 @@ export default function VEvents({ events = [] }) {
       <div className="vContainer">
         <div className="vSectionTitleRow">
           <div>
-            <span>Virtual Running Heros</span>
-            <h1>Virtual Events</h1>
+            <h1>Trending Event</h1>
           </div>
           <a href="#events" className="vSectionAction">
             View All
