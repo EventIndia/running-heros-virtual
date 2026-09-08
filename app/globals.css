@@ -140,14 +140,18 @@ img {
   place-items: center;
   width: 42px;
   height: 42px;
+  min-width: 42px;
   flex: 0 0 auto;
   margin: 0 8px 0 4px;
   outline: 4px solid #ffffff;
   border-radius: 50%;
   background: #c0c4ca;
   color: #ffffff;
+  font-size: 17px;
   font-weight: 700;
+  line-height: 1;
   text-decoration: none;
+  aspect-ratio: 1 / 1;
 }
 
 .vSwitchBack {
