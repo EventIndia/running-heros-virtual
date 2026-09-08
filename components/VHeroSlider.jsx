@@ -62,7 +62,6 @@ export default function VHeroSlider({ slides = [] }) {
               <div className="vHeroFallbackImage" />
             )}
             <span className="vHeroShade" />
-            <span className="vHeroStatus">{slide.status}</span>
           </a>
         ))}
       </div>
