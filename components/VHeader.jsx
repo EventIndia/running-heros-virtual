@@ -44,13 +44,11 @@ export default function VHeader() {
     <header className="vHeader">
       <div className="vContainer vHeaderInner">
         <Link href="/" className="vBrand" aria-label="Virtual Running Heros">
-          <span className="vBrandMark">
-            <span />
-          </span>
-          <span>
-            <strong>Running Heros</strong>
-            <small>Virtual Runs</small>
-          </span>
+          <img
+            src="/virtual-running-heros-logo.png"
+            alt="Virtual Running Heros"
+            className="vBrandLogo"
+          />
         </Link>
 
         <Link href="#events" className="vSearchPill">
@@ -74,9 +72,13 @@ export default function VHeader() {
           <Link href="#events">Events</Link>
         </nav>
 
-        <span className="vAvatar" aria-label="Account">
+        <Link
+          href="https://runningheros.in/account"
+          className="vAvatar"
+          aria-label="Account"
+        >
           A
-        </span>
+        </Link>
 
         <Link href="https://runningheros.in" className="vSwitchBack">
           Switch to Running Heros

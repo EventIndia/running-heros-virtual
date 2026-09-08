@@ -59,40 +59,15 @@ img {
 .vBrand {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
-  min-width: 160px;
+  min-width: 158px;
 }
 
-.vBrandMark {
-  position: relative;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 68% 24%, #76d8ff 0 13%, transparent 14%),
-    conic-gradient(from 130deg, #5bd4ff, #2874ef, #35c176, #5bd4ff);
-}
-
-.vBrandMark span {
-  position: absolute;
-  inset: 11px;
-  border-radius: 50%;
-  background: var(--v-white);
-}
-
-.vBrand strong {
+.vBrandLogo {
   display: block;
-  color: #173348;
-  font-size: 18px;
-  line-height: 1;
-  letter-spacing: -0.04em;
-}
-
-.vBrand small {
-  display: block;
-  margin-top: 3px;
-  color: var(--v-blue);
-  font-size: 9px;
-  font-weight: 700;
+  width: 150px;
+  height: auto;
+  max-height: 54px;
+  object-fit: contain;
 }
 
 .vSearchPill {
@@ -170,6 +145,7 @@ img {
   background: #c0c4ca;
   color: #ffffff;
   font-weight: 700;
+  text-decoration: none;
 }
 
 .vSwitchBack {
@@ -559,7 +535,11 @@ img {
   }
 
   .vBrand {
-    min-width: auto;
+    min-width: 136px;
+  }
+
+  .vBrandLogo {
+    width: 136px;
   }
 
   .vSearchPill {
@@ -638,17 +618,10 @@ img {
     gap: 10px;
   }
 
-  .vBrand strong {
-    font-size: 15px;
-  }
-
-  .vBrand small {
-    font-size: 8px;
-  }
-
-  .vBrandMark {
-    width: 36px;
-    height: 36px;
+  .vBrand,
+  .vBrandLogo {
+    width: 122px;
+    min-width: 122px;
   }
 
   .vSearchPill {
