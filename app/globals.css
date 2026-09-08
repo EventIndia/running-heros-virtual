@@ -202,22 +202,33 @@ img {
 }
 
 .vHeroSection {
-  padding: 30px 0 24px;
+  padding: 16px 0 14px;
+  background:
+    linear-gradient(90deg, #1428ff 0%, #9b005a 50%, #ff1010 100%) top / 100% 6px no-repeat,
+    #07111f;
 }
 
 .vHeroSlider {
   position: relative;
+  width: min(100% - 64px, 1820px);
+  margin: 0 auto;
+}
+
+.vHeroTrack {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 
 .vHeroBanner {
   position: relative;
   display: block;
   overflow: hidden;
-  min-height: 460px;
-  aspect-ratio: 2.17 / 1;
-  border-radius: 38px;
-  background: linear-gradient(135deg, #cce9ff, #eafff4 45%, #fff0dc);
-  box-shadow: var(--v-shadow);
+  min-height: 300px;
+  aspect-ratio: 1.76 / 1;
+  border-radius: 10px;
+  background: #0d1828;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.34);
   isolation: isolate;
 }
 
@@ -241,9 +252,7 @@ img {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(0, 16, 38, 0.2)),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.16), transparent 34%, rgba(0, 0, 0, 0.12));
+  background: linear-gradient(180deg, rgba(1, 9, 21, 0.02), rgba(1, 9, 21, 0.16));
   pointer-events: none;
 }
 
@@ -253,12 +262,12 @@ img {
   left: 50%;
   z-index: 2;
   transform: translate(-50%, -50%);
-  width: min(430px, 70%);
-  padding: 12px 22px;
+  width: min(420px, 76%);
+  padding: 6px 16px 8px;
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.68);
+  background: rgba(255, 255, 255, 0.72);
   color: #2b2a19;
-  font-size: clamp(22px, 3vw, 38px);
+  font-size: clamp(20px, 2vw, 32px);
   font-weight: 900;
   text-align: center;
   letter-spacing: -0.04em;
@@ -266,21 +275,7 @@ img {
 }
 
 .vHeroMeta {
-  position: absolute;
-  right: 22px;
-  bottom: 22px;
-  left: 22px;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 17px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.34);
-  border-radius: 22px;
-  background: rgba(3, 17, 40, 0.64);
-  color: #ffffff;
-  backdrop-filter: blur(14px);
+  display: none;
 }
 
 .vHeroMeta p {
@@ -308,7 +303,7 @@ img {
   display: flex;
   justify-content: center;
   gap: 9px;
-  margin-top: 17px;
+  margin-top: 14px;
 }
 
 .vHeroDots button {
@@ -324,6 +319,40 @@ img {
 .vHeroDots button.isActive {
   width: 34px;
   background: var(--v-green);
+}
+
+.vHeroArrow {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  transform: translateY(-50%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(13, 25, 44, 0.72);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 36px;
+  line-height: 1;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.vHeroArrow:hover {
+  background: rgba(13, 25, 44, 0.92);
+  transform: translateY(-50%) scale(1.04);
+}
+
+.vHeroArrowPrev {
+  left: -36px;
+}
+
+.vHeroArrowNext {
+  right: -36px;
 }
 
 .vEventsSection {
@@ -561,9 +590,17 @@ img {
     color: var(--v-blue) !important;
   }
 
+  .vHeroSlider {
+    width: min(100% - 34px, 1180px);
+  }
+
+  .vHeroTrack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .vHeroBanner {
-    min-height: 330px;
-    border-radius: 28px;
+    min-height: 250px;
+    border-radius: 14px;
   }
 
   .vHeroMeta {
@@ -611,13 +648,21 @@ img {
   }
 
   .vHeroSection {
-    padding-top: 18px;
+    padding: 14px 0 12px;
+  }
+
+  .vHeroSlider {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .vHeroTrack {
+    grid-template-columns: 1fr;
   }
 
   .vHeroBanner {
-    min-height: 250px;
-    aspect-ratio: 1.25 / 1;
-    border-radius: 24px;
+    min-height: 230px;
+    aspect-ratio: 1.45 / 1;
+    border-radius: 14px;
   }
 
   .vHeroStatus {
@@ -640,6 +685,20 @@ img {
 
   .vHeroMeta span {
     font-size: 12px;
+  }
+
+  .vHeroArrow {
+    width: 38px;
+    height: 38px;
+    font-size: 30px;
+  }
+
+  .vHeroArrowPrev {
+    left: -12px;
+  }
+
+  .vHeroArrowNext {
+    right: -12px;
   }
 
   .vSectionTitleRow {
