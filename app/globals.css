@@ -568,7 +568,7 @@ img {
   justify-content: center;
   min-height: 34px;
   flex: 1;
-  border: 1px solid #ff7a2f;
+  border: 1px solid #22b56b;
   border-radius: 5px;
   font-size: 14px;
   font-weight: 800;
@@ -580,16 +580,16 @@ img {
 
 .vInfoButton {
   background: #ffffff;
-  color: #ff7a2f;
+  color: #14965a;
 }
 
 .vBookButton {
-  background: #ff7a2f;
+  background: #22b56b;
   color: #ffffff;
 }
 
 .vEventFooter a:hover {
-  background: #f46a1c;
+  background: #14965a;
   color: #ffffff;
 }
 
