@@ -200,7 +200,7 @@ img {
 .vHeroSection {
   padding: 16px 0 14px;
   background:
-    linear-gradient(90deg, #1428ff 0%, #9b005a 50%, #ff1010 100%) top / 100% 6px no-repeat,
+    linear-gradient(90deg, rgba(40, 116, 239, 0.72) 0%, rgba(7, 150, 76, 0.66) 52%, rgba(52, 211, 153, 0.58) 100%) top / 100% 6px no-repeat,
     #07111f;
 }
 
@@ -391,18 +391,42 @@ img {
 .vEventCard,
 .vEmptyState {
   overflow: hidden;
-  border: 1px solid var(--v-line);
-  border-radius: 28px;
+  border: 1px solid #dfe8f2;
+  border-radius: 22px;
   background: #ffffff;
-  box-shadow: 0 16px 36px rgba(10, 35, 66, 0.08);
+  box-shadow: 0 16px 36px rgba(16, 24, 40, 0.08);
+}
+
+.vEventCard {
+  display: flex;
+  min-width: 0;
+  height: 100%;
+  flex-direction: column;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.vEventCard:hover {
+  border-color: rgba(7, 150, 76, 0.32);
+  box-shadow: 0 20px 44px rgba(16, 24, 40, 0.12);
+  transform: translateY(-3px);
 }
 
 .vEventImageWrap {
   position: relative;
   display: block;
-  aspect-ratio: 1.72 / 1;
+  width: 100%;
+  aspect-ratio: 1.78 / 1;
   overflow: hidden;
   background: linear-gradient(135deg, #ddf2ff, #ecfff4);
+}
+
+.vEventImageLink {
+  position: absolute;
+  inset: 0;
+  display: block;
 }
 
 .vEventImageWrap img,
@@ -414,62 +438,159 @@ img {
 
 .vEventImageWrap span {
   position: absolute;
-  top: 14px;
-  left: 14px;
-  padding: 7px 11px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--v-green);
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  max-width: 66%;
+  padding: 0 14px;
+  border-radius: 0 0 0 8px;
+  background: #d81bb8;
+  color: #ffffff;
   font-size: 12px;
   font-weight: 900;
-}
-
-.vEventBody {
-  padding: 19px;
-}
-
-.vEventDistance {
-  margin: 0 0 9px;
-  color: var(--v-green);
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
 }
 
+.vEventShare {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  z-index: 2;
+  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #111827;
+  cursor: pointer;
+  box-shadow: 0 5px 14px rgba(16, 24, 40, 0.18);
+}
+
+.vEventShare svg {
+  width: 17px;
+  height: 17px;
+}
+
+.vEventBody {
+  display: flex;
+  min-height: 238px;
+  flex: 1;
+  flex-direction: column;
+  padding: 16px 14px 10px;
+}
+
 .vEventBody h2 {
-  min-height: 56px;
-  margin: 0;
-  font-size: 19px;
-  line-height: 1.28;
+  display: -webkit-box;
+  min-height: 48px;
+  margin: 0 0 12px;
+  overflow: hidden;
+  color: #3f3f46;
+  font-size: 18px;
+  font-weight: 800;
   letter-spacing: -0.03em;
+  line-height: 1.22;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .vEventMeta {
-  min-height: 44px;
-  margin: 11px 0 18px;
-  color: var(--v-muted);
+  position: relative;
+  min-height: 28px;
+  margin: 0;
+  overflow: hidden;
+  padding-left: 23px;
+  color: #5f6368;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 28px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vEventDate::before,
+.vEventLocation::before,
+.vEventPrice::before {
+  position: absolute;
+  left: 1px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  transform: translateY(-50%);
+  border: 1.5px solid #6b7280;
+}
+
+.vEventDate::before {
+  content: "";
+  border-radius: 3px;
+}
+
+.vEventLocation::before {
+  content: "";
+  border-radius: 50% 50% 50% 0;
+  transform: translateY(-60%) rotate(-45deg);
+}
+
+.vEventPrice {
+  position: relative;
+  margin: 12px 0 0;
+  padding-left: 23px;
+  color: #2d2d2d;
   font-size: 14px;
-  line-height: 1.5;
+  font-weight: 900;
+  line-height: 28px;
+}
+
+.vEventPrice::before {
+  content: "";
+  height: 8px;
+  border-radius: 2px;
 }
 
 .vEventFooter {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
-}
-
-.vEventFooter strong {
-  font-size: 15px;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 12px;
 }
 
 .vEventFooter a {
-  padding: 10px 15px;
-  border-radius: 999px;
-  background: var(--v-blue);
-  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  flex: 1;
+  border: 1px solid #ff7a2f;
+  border-radius: 5px;
+  font-size: 14px;
   font-weight: 800;
+  white-space: nowrap;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.vInfoButton {
+  background: #ffffff;
+  color: #ff7a2f;
+}
+
+.vBookButton {
+  background: #ff7a2f;
+  color: #ffffff;
+}
+
+.vEventFooter a:hover {
+  background: #f46a1c;
+  color: #ffffff;
 }
 
 .vEmptyState {

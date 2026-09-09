@@ -31,19 +31,17 @@ function getPrice(event) {
   return price ? `From Rs. ${price}` : "Register now";
 }
 
-function getDistance(event) {
-  const values = [...(event?.distances || []), ...(event?.activity_types || [])];
-  const label = values
-    .map((value) =>
-      typeof value === "object"
-        ? value?.name || value?.label || value?.title || ""
-        : value,
-    )
-    .filter(Boolean)
-    .slice(0, 3)
-    .join(" | ");
+function getCategory(event) {
+  return (
+    event?.category?.name ||
+    event?.event_category?.name ||
+    event?.category ||
+    "Marathons"
+  );
+}
 
-  return label || "Virtual Run";
+function getLocation(event) {
+  return event?.venue?.city || event?.location || "Run anywhere";
 }
 
 export default function VEventCard({ event }) {
@@ -51,28 +49,43 @@ export default function VEventCard({ event }) {
   const href = event?.slug
     ? `${MAIN_SITE_URL.replace(/\/$/, "")}/events/${event.slug}`
     : `${MAIN_SITE_URL.replace(/\/$/, "")}/events`;
+  const bookingHref = event?.slug
+    ? `${MAIN_SITE_URL.replace(/\/$/, "")}/events/${event.slug}/book`
+    : href;
 
   return (
     <article className="vEventCard">
-      <a href={href} className="vEventImageWrap">
-        {image ? (
-          <img src={image} alt={event?.name || "Virtual running event"} />
-        ) : (
-          <div className="vEventImageFallback" />
-        )}
-        <span>{event?.sold_out ? "Closed" : "Open"}</span>
-      </a>
+      <div className="vEventImageWrap">
+        <a href={href} className="vEventImageLink">
+          {image ? (
+            <img src={image} alt={event?.name || "Virtual running event"} />
+          ) : (
+            <div className="vEventImageFallback" />
+          )}
+        </a>
+        <span>{getCategory(event)}</span>
+        <button type="button" className="vEventShare" aria-label="Share event">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path
+              d="M18 8a3 3 0 1 0-2.83-4H15a3 3 0 0 0 .17 1l-6.34 3.17a3 3 0 1 0 0 3.66L15.17 15A3 3 0 1 0 14 17.33l-6.34-3.17A3 3 0 0 0 8 13a3 3 0 0 0-.34-1.39l6.32-3.16A3 3 0 0 0 18 8Z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
 
       <div className="vEventBody">
-        <p className="vEventDistance">{getDistance(event)}</p>
         <h2>{event?.name || "Virtual Running Event"}</h2>
-        <p className="vEventMeta">
-          {formatDate(event?.start_date)} |{" "}
-          {event?.venue?.city || event?.location || "Run anywhere"}
-        </p>
+        <p className="vEventMeta vEventDate">{formatDate(event?.start_date)}</p>
+        <p className="vEventMeta vEventLocation">{getLocation(event)}</p>
+        <p className="vEventPrice">{getPrice(event)}</p>
         <div className="vEventFooter">
-          <strong>{getPrice(event)}</strong>
-          <a href={href}>Register</a>
+          <a href={href} className="vInfoButton">
+            View Info
+          </a>
+          <a href={bookingHref} className="vBookButton">
+            Book Now
+          </a>
         </div>
       </div>
     </article>
